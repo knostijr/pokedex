@@ -20,9 +20,10 @@
     <link rel="stylesheet" href="./styles/responsive.css">
 
     <script src="./scripts/script.js"></script>
+    <script src="./scripts/fetchfromapi.js"></script>
 </head>
 
-<body>
+<body onload="init()">
 
     <nav class="navbar">
         <div class="navbar-container">
@@ -30,15 +31,19 @@
             <p>Pokédex</p>
         </div>
         <div class="navbar-search">
-            <input type="text" id="search" placeholder="Suche nach Pokémon...">
-            <button id="search-button">Suchen</button>
+            <input type="text" id="search" placeholder="Search all pokémons...">
+            <button id="search-button">search</button>
         </div>
     </nav>
 
 
     <div id="content"></div>
 
-    <footer></footer>
+    <footer>
+        <div class="footer-container">
+            <img src="assets/logo/knostojr.png" alt="Pokedex-Logo">
+        </div>
+    </footer>
 
 
 </body>

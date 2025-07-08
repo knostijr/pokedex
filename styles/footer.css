@@ -1,0 +1,19 @@
+footer {
+    margin-top: 34px;
+    height: 60px;
+    width: 100%;
+
+}
+
+.footer-container {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 16px;
+    background-color: rgb(8, 33, 41);
+
+}
+
+.footer-container img {
+    max-height: 126px;
+    padding-bottom: 8px;
+}

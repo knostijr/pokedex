@@ -12,28 +12,42 @@ body {
     background-color: rgb(6, 20, 26);
 }
 
-.navbar {
-    background-color: rgb(8, 33, 41);
-    display: flex;
-    align-items: center;
-    padding-left: 60px;
-    padding-right: 60px;
-    padding-top: 8px;
-    padding-bottom: 8px;
-    height: 60px;
-
-    justify-content: space-between;
+h4 {
+    font-weight: 700;
 }
 
-.navbar-container {
-    display: flex;
-    align-items: center; 
-    gap: 12px;   
+
+#content {
+    padding-top: 20px;
+    padding-left: 40px;
+    padding-right: 40px;
 }
 
-.navbar p {
+.pokemon {
+    cursor: pointer;
+    background-color: rgba(125, 164, 177, 0.315);
+    color: whitesmoke;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    padding: 12px;
+    margin: 10px;
+    text-align: center;
+    width: 180px;
+    display: inline-block;
+    box-shadow: 2px 2px 6px rgba(0,0,0,0.1);
+}
+
+.pokemon:hover {
+    background-color: rgba(182, 237, 255, 0.315);
+}
+
+.pokemon p{
+    color:rgb(255, 213, 0);
     font-weight: 800;
-    font-size: 24px;
-    color: rgb(255, 213, 0)
 }
 
+.pokemon img {
+    padding-top: 16px;
+    padding-bottom: 16px;
+    width: 120px;
+}
