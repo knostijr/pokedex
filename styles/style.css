@@ -2,9 +2,38 @@
     box-sizing: border-box;
     margin: 0;
     scroll-behavior: smooth;
+    font-family: "Montserrat", sans-serif;
+    max-width: 1920px;
 }
 
 body {
     min-height: 100vh;
     max-width: 100%;
+    background-color: rgb(6, 20, 26);
 }
+
+.navbar {
+    background-color: rgb(8, 33, 41);
+    display: flex;
+    align-items: center;
+    padding-left: 60px;
+    padding-right: 60px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    height: 60px;
+
+    justify-content: space-between;
+}
+
+.navbar-container {
+    display: flex;
+    align-items: center; 
+    gap: 12px;   
+}
+
+.navbar p {
+    font-weight: 800;
+    font-size: 24px;
+    color: rgb(255, 213, 0)
+}
+

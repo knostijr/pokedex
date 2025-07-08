@@ -1,13 +1,46 @@
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pokédex</title>
+    <link rel="icon" type="image/png" href="./assets/favicon/favicon32x32.png">
+    </link>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,
+    wght@0,100..900;1,100..900&family=Raleway:ital,wght@0,100..900;1,100..
+    900&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="./styles/style.css">
+    <link rel="stylesheet" href="./styles/navbar.css">
+    <link rel="stylesheet" href="./styles/footer.css">
+    <link rel="stylesheet" href="./styles/responsive.css">
+
     <script src="./scripts/script.js"></script>
 </head>
+
 <body>
-    
+
+    <nav class="navbar">
+        <div class="navbar-container">
+            <img src="assets/logo/pokedexlogo.png" alt="Pokedex-Logo">
+            <p>Pokédex</p>
+        </div>
+        <div class="navbar-search">
+            <input type="text" id="search" placeholder="Suche nach Pokémon...">
+            <button id="search-button">Suchen</button>
+        </div>
+    </nav>
+
+
+    <div id="content"></div>
+
+    <footer></footer>
+
+
 </body>
+
 </html>
