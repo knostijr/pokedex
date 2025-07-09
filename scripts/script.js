@@ -1,8 +1,7 @@
 // is missing:
-// - types, types IMG, types Color on Card
+// - types IMG, types Color on Card
 // - onclick function, card viewer + arrow to coordinate
 // - search function
-// -  first Letter big in pokemoncards
 
 // DOM Templates
 
@@ -20,8 +19,10 @@
 } */
 
 // loading in body 
-function init() {
-    fetchKantoPokemon();
+async function init() {
+    showLoadingSpinner();
+    await fetchKantoPokemon();
+    hideLoadingSpinner();
 }
 
 //render all Kanto Pokemons
@@ -36,11 +37,25 @@ function renderPokemon(pokeData) {
     let pokeName = document.createElement('h4');
     pokeName.innerText = pokeData.name.charAt(0).toUpperCase() + pokeData.name.slice(1);
 
-    pokeContainer.append(pokeName, pokeNumber);
+    let pokeTypes = document.createElement('ul');
+    createTypes(pokeData.types, pokeTypes);
+
+    pokeContainer.append(pokeName, pokeNumber, pokeTypes);
     allPokemonContainer.append(pokeContainer);
+
+
 
     createPokemonImage(pokeData.id, pokeContainer);
 
+}
+
+// create Types of the Pokemons
+function createTypes(types, ul) {
+    for (let i = 0; i < types.length; i++) {
+        let typeLi = document.createElement('li');
+        typeLi.innerText = types[i].type.name;
+        ul.appendChild(typeLi);
+    }
 }
 
 //create the Image of the Pokemons
@@ -54,3 +69,6 @@ function createPokemonImage(pokeId, containerDiv) {
     pokeImgContainer.append(pokeImage);
     containerDiv.append(pokeImgContainer);
 }
+
+
+
