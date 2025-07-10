@@ -1,64 +1,29 @@
 // is missing:
 // - types IMG, types Color on Card
 // - onclick function, card viewer + arrow to coordinate
-// - search function
 
-// DOM Templates
 
-/**function xDomTemplate() {
- * 
- * let contentRef = document getElementById('content');
- * for(let i = 0; i < pokeData.length; i++) {
- *    contentRef.innerHTML += `
- * <div class="pokemon" id="pokemons${pokeData[i].id}">
- *    <h4>${pokeData[i].name}</h4>
- *    <p>Type: ${pokeData[i].type}</p>
- *    <p>Color: ${pokeData[i].color}</p>
- * </div>
- * }
-} */
-
-// loading in body 
+//-------- loading in body --------
 async function init() {
     showLoadingSpinner();
     await fetchKantoPokemon();
     hideLoadingSpinner();
+    setupSearch();
 }
 
-//render all Kanto Pokemons
+//-------- render all Kanto Pokemons --------
 function renderPokemon(pokeData) {
     let allPokemonContainer = document.getElementById('content');
-    let pokeContainer = document.createElement('div');
-    pokeContainer.classList.add('pokemon');
-
-    let pokeNumber = document.createElement('p');
-    pokeNumber.innerText = `#${pokeData.id}`;
-
-    let pokeName = document.createElement('h4');
-    pokeName.innerText = pokeData.name.charAt(0).toUpperCase() + pokeData.name.slice(1);
-
-    let pokeTypes = document.createElement('ul');
-    createTypes(pokeData.types, pokeTypes);
-
-    pokeContainer.append(pokeName, pokeNumber, pokeTypes);
-    allPokemonContainer.append(pokeContainer);
-
-
-
-    createPokemonImage(pokeData.id, pokeContainer);
-
+    let pokemonHTML = buildPokemonCard(pokeData);
+    allPokemonContainer.innerHTML += pokemonHTML;
 }
 
-// create Types of the Pokemons
-function createTypes(types, ul) {
-    for (let i = 0; i < types.length; i++) {
-        let typeLi = document.createElement('li');
-        typeLi.innerText = types[i].type.name;
-        ul.appendChild(typeLi);
-    }
+// ------- suuport function -------
+function capitalize(name) {
+    return name.charAt(0).toUpperCase() + name.slice(1);
 }
 
-//create the Image of the Pokemons
+//------- create Pokemon Image -------
 function createPokemonImage(pokeId, containerDiv) {
     let pokeImgContainer = document.createElement('div');
     pokeImgContainer.classList.add('image');
@@ -70,5 +35,44 @@ function createPokemonImage(pokeId, containerDiv) {
     containerDiv.append(pokeImgContainer);
 }
 
+// -------- search functionality --------
+function setupSearch() {
+    let searchInput = document.getElementById('search');
+    searchInput.addEventListener('input', handleSearchInput);
+}
 
 
+function handleSearchInput(event) {
+    let query = event.target.value.trim().toLowerCase();
+    let content = document.getElementById('content');
+    content.innerHTML = '';
+
+    let results = [];
+
+    for (let i = 0; i < allFetchedPokemon.length; i++) {
+        let pokemon = allFetchedPokemon[i];
+        if (
+            pokemon.name.toLowerCase().includes(query) ||
+            pokemon.id.toString().includes(query)
+        ) {
+            results.push(pokemon);
+        }
+    }
+
+    renderSearchResults(results, query, content);
+}
+
+function renderSearchResults(results, query, container) {
+    if (results.length === 0 && query !== '') {
+        container.innerHTML = ` <div class="no-results"
+                                <p>Kein Pokémon gefunden.</p>
+                                </dicv>`;
+    } else {
+        let list = query === '' ? allFetchedPokemon : results;
+        for (let i = 0; i < list.length; i++) {
+            renderPokemon(list[i]);
+        }
+    }
+}
+
+// ------- detail view -------
