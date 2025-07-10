@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="./styles/style.css">
     <link rel="stylesheet" href="./styles/navbar.css">
     <link rel="stylesheet" href="./styles/footer.css">
-    <link rel=""stylesheet" href="./styles/detail.css">
+    <link rel="stylesheet" href="./styles/detailview.css">
     <link rel="stylesheet" href="./styles/responsive.css">
 
     <script src="./scripts/script.js"></script>
@@ -43,12 +43,20 @@
 
     <div id="loading-spinner" class="spinner"></div>
 
-
     <div id="content">
-        
-    </div>
+        <div id="pokemon-detail-overlay" class="overlay hidden">
+            <button id="prev-btn" class="nav-arrow left" onclick="showPrevPokemon()">&#8592;</button>
+
+            <div id="pokemon-detail" class="detail-container">
+            </div>
+
+            <button id="next-btn" class="nav-arrow right" onclick="showNextPokemon()">&#8594;</button>
+        </div>
 
     </div>
+
+
+
 
     <footer>
         <div class="footer-container">

@@ -12,12 +12,15 @@ async function fetchKantoPokemon() {
         await Promise.all(
             allPokemon.results.map(pokemon => fetchPokemonData(pokemon))
         );
+
+        renderPokemonPage();
     } catch (error) {
         console.error('Fehler beim Laden der Pokémon-Daten:', error);
     } finally {
         hideLoadingSpinner();
     }
 }
+
 
 async function fetchPokemonData(pokemon) {
     try {
@@ -31,17 +34,3 @@ async function fetchPokemonData(pokemon) {
     }
 }
 
-async function loadEvolutionChain(pokemon) {
-    try {
-        let speciesRes = await fetch(pokemon.species.url);
-        let speciesData = await speciesRes.json();
-
-        let evoRes = await fetch(speciesData.evolution_chain.url);
-        let evoData = await evoRes.json();
-
-        let evoHTML = buildEvoChainHTML(evoData.chain);
-        document.getElementById('tab-evo').innerHTML = evoHTML;
-    } catch (e) {
-        document.getElementById('tab-evo').innerHTML = 'Failed to load evolution data.';
-    }
-}

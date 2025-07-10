@@ -1,4 +1,4 @@
-// ------ Template function -------
+// ------ Template functions -------
 
 function buildPokemonCard(pokeData) {
     let typesHTML = '';
@@ -27,3 +27,17 @@ function buildPokemonCard(pokeData) {
 }
 
 // ------- Detail View Template -------
+function buildPokemonDetailHTML(pokemon) {
+    return `
+        <div style="text-align: right;">
+            <button onclick="closePokemonDetail()">✖ Schließen</button>
+        </div>
+        <h2>${capitalize(pokemon.name)} (#${pokemon.id})</h2>
+        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png" 
+             alt="${pokemon.name}" style="width: 200px;">
+
+        <p><strong>Height:</strong> ${pokemon.height / 10} m</p>
+        <p><strong>Weight:</strong> ${pokemon.weight} kg</p>
+        <p><strong>Abilities:</strong> ${pokemon.abilities.map(a => a.ability.name).join(', ')}</p>
+    `;
+}
