@@ -1,5 +1,4 @@
 * {
-    box-sizing: border-box;
     margin: 0;
     scroll-behavior: smooth;
     font-family: "Montserrat", sans-serif;
@@ -19,8 +18,15 @@ h4 {
 
 #content {
     padding-top: 20px;
-    padding-left: 40px;
-    padding-right: 40px;
+}
+
+.ul {
+    display: flex; 
+    gap: 5px; 
+    list-style: none; 
+    padding: 0; 
+    justify-content: center; 
+    margin-top: 10px;
 }
 
 .pokemon {
@@ -78,3 +84,129 @@ h4 {
     height: 100vh;
 }
 
+
+.pagination-controls {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    margin: 20px 0;
+}
+
+.pagination-controls button {
+    background-color: rgb(255, 251, 227);
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.pagination-controls button:hover {
+    background-color: rgb(255, 213, 0);
+}
+
+
+/*-------------------------- stats, type, bar -----------------------------------*/
+
+.type-list {
+    display: flex;
+    padding-top: 12px;
+    gap: 5px;
+    list-style: none;
+    padding: 0;
+    margin-bottom: 16px;
+}
+
+.type-icon {
+    width: 30px;
+    height: 30px;
+    padding-top: 12px;
+
+}
+
+.pokemon-detail-image {
+    width: 200px;
+    display: block;
+    margin: 0 auto 16px auto;
+}
+
+.stats-container {
+    background-color: rgba(8, 27, 34, 0.22);
+    padding: 14px;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+.stat-row {
+    margin-bottom: 12px;
+}
+
+.stat-bar-bg {
+    background-color: #ddd;
+    border-radius: 6px;
+    overflow: hidden;
+    height: 12px;
+    margin: 4px 0;
+}
+
+.stat-bar-fill {
+    height: 100%;
+    transition: width 0.3s ease;
+}
+
+.bar-green {
+    background-color: #4CAF50;
+}
+
+.bar-yellow {
+    background-color: #FFC107;
+}
+
+.bar-red {
+    background-color: #F44336;
+}
+
+.detail-close {
+    text-align: right;
+}
+
+
+
+/*------------------------------Tabs in detail view -----------------------------*/
+.tabs {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin: 20px 0;
+}
+
+.tab-btn {
+    padding: 8px 16px;
+    border: none;
+    background-color: #eee;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.2s;
+}
+
+.tab-btn.active {
+    background-color: #2196F3;
+    color: white;
+}
+
+.tab-content {
+    display: none;
+    animation: fadeIn 0.3s ease-in;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}

@@ -2,6 +2,9 @@
 // fetch Kanto Pokémon from the PokéAPI and render them on the page
 
 let allFetchedPokemon = [];
+let currentPage = 1;
+const pokemonsPerPage = 20;
+
 
 async function fetchKantoPokemon() {
     try {

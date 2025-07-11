@@ -1,6 +1,5 @@
 // is missing:
 // - types IMG, types Color on Card
-// start loading: max. 50 Pokemons
 
 
 //-------- loading in body ----------------------------------------
@@ -45,7 +44,7 @@ function setupSearch() {
     searchInput.addEventListener('input', handleSearchInput);
 }
 
-
+// ------- handle search input ----------------------------------------
 function handleSearchInput(event) {
     let query = event.target.value.trim().toLowerCase();
     let content = document.getElementById('content');
@@ -66,7 +65,7 @@ function handleSearchInput(event) {
     renderSearchResults(results, query, content);
 }
 
-
+// ------- render search results ----------------------------------------
 function renderSearchResults(results, query, container) {
     if (results.length === 0 && query !== '') {
         container.innerHTML = ` <div class="no-results"
@@ -96,15 +95,16 @@ function showPokemonDetail(pokemonId) {
 
     document.getElementById('pokemon-detail-overlay').classList.remove('hidden');
     document.body.classList.add('no-scroll');
+
 }
 
-
+// ------- close detail view ----------------------------------------
 function closePokemonDetail() {
     document.getElementById('pokemon-detail-overlay').classList.add('hidden');
-    document.body.classList.remove('no-scroll'); // Scroll wieder erlauben
+    document.body.classList.remove('no-scroll');
 }
 
-
+// ------- show previous pokemon ----------------------------------------
 function showPrevPokemon() {
     if (currentPokemonIndex > 0) {
         currentPokemonIndex--;
@@ -112,7 +112,7 @@ function showPrevPokemon() {
     }
 }
 
-
+//  ------- show next pokemon ----------------------------------------
 function showNextPokemon() {
     if (currentPokemonIndex < allFetchedPokemon.length - 1) {
         currentPokemonIndex++;
@@ -120,7 +120,7 @@ function showNextPokemon() {
     }
 }
 
-
+//------- keyboard navigation ----------------------------------------
 document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
         closePokemonDetail();
@@ -130,3 +130,65 @@ document.addEventListener('keydown', (e) => {
         showPrevPokemon();
     }
 });
+
+//------- render only 20 pokemons per page --------------------
+function renderPokemonPage() {
+    const content = document.getElementById('content');
+    content.innerHTML = '';
+
+    const startIndex = (currentPage - 1) * pokemonsPerPage;
+    const endIndex = startIndex + pokemonsPerPage;
+    const pagePokemons = allFetchedPokemon.slice(startIndex, endIndex);
+
+    for (let i = 0; i < pagePokemons.length; i++) {
+        renderPokemon(pagePokemons[i]);
+    }
+
+    renderPaginationControls();
+}
+
+//------- pagination controls ------------------------------------
+function renderPaginationControls() {
+    let paginationContainer = document.getElementById('pagination');
+    paginationContainer.innerHTML = '';
+
+    let totalPages = Math.ceil(allFetchedPokemon.length / pokemonsPerPage);
+
+    if (currentPage > 1) {
+        paginationContainer.innerHTML += `<button onclick="goToPage(${currentPage - 1})">⬅️ Zurück</button>`;
+    }
+
+    paginationContainer.innerHTML += `<span style="color:white; margin: 0 12px;">Seite ${currentPage} von ${totalPages}</span>`;
+
+    if (currentPage < totalPages) {
+        paginationContainer.innerHTML += `<button onclick="goToPage(${currentPage + 1})">Weiter ➡️</button>`;
+    }
+}
+
+// ------- go to specific page ------------------------------------
+function goToPage(pageNumber) {
+    currentPage = pageNumber;
+    renderPokemonPage();
+}
+
+// ------- show tab content ----------------------------------------
+function showTab(tabId) {
+    let tabs = document.querySelectorAll('.tab-content');
+    for (let i = 0; i < tabs.length; i++) {
+        tabs[i].classList.remove('active');
+    }
+
+    let buttons = document.querySelectorAll('.tab-btn');
+    for (let i = 0; i < buttons.length; i++) {
+        buttons[i].classList.remove('active');
+    }
+
+    document.getElementById(`tab-${tabId}`).classList.add('active');
+
+    for (let i = 0; i < buttons.length; i++) {
+        if (buttons[i].textContent.toLowerCase() === tabId) {
+            buttons[i].classList.add('active');
+        }
+    }
+}
+

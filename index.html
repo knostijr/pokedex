@@ -24,7 +24,6 @@
     <script src="./scripts/fetchfromapi.js"></script>
     <script src="./scripts/loadingspinner.js"></script>
     <script src="./scripts/templates.js"></script>
-    <script src="./scripts/pokemontypes.js"></script>
 
 </head>
 
@@ -40,24 +39,21 @@
             <button id="search-button">search</button>
         </div>
     </nav>
-
     <div id="loading-spinner" class="spinner"></div>
 
-    <div id="content">
-        <div id="pokemon-detail-overlay" class="overlay hidden">
-            <button id="prev-btn" class="nav-arrow left" onclick="showPrevPokemon()">&#8592;</button>
+    <div id="content"></div>
 
-            <div id="pokemon-detail" class="detail-container">
-            </div>
+    <div id="pagination" class="pagination-controls"></div>
 
-            <button id="next-btn" class="nav-arrow right" onclick="showNextPokemon()">&#8594;</button>
-        </div>
+    <div id="pokemon-detail-overlay" class="overlay hidden">
+        <button id="prev-btn" class="nav-arrow left" onclick="showPrevPokemon()">&#8592;</button>
 
+        <div id="pokemon-detail" class="detail-container"></div>
+
+        <button id="next-btn" class="nav-arrow right" onclick="showNextPokemon()">&#8594;</button>
     </div>
 
-
-
-
+    
     <footer>
         <div class="footer-container">
             <img src="assets/logo/knostojr.png" alt="Pokedex-Logo">
