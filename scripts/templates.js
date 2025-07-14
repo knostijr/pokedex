@@ -89,7 +89,7 @@ function buildPokemonStatsHTML(pokemon) {
                 <small>${value}</small>
             </div>`;
     } return `
-        <h3>Statuswerte</h3>
+        <h3>stats value</h3>
         <div class="stats-container">
             ${statsHTML}
         </div>`;
@@ -117,16 +117,16 @@ function buildPokemonDetailHTML(pokemon) {
         ${typesHTML}
 
         <div class="tabs">
-            <button class="tab-btn active" onclick="showTab('main')">Main</button>
-            <button class="tab-btn" onclick="showTab('stats')">Stats</button>
-            <button class="tab-btn" onclick="showTab('evolution')">Evolution</button>
+            <button class="tab-btn active" onclick="showTab('main')">main</button>
+            <button class="tab-btn" onclick="showTab('stats')">stats</button>
+            <button class="tab-btn" onclick="showTab('evolution')">evolution</button>
         </div>
 
         <div id="tab-main" class="tab-content active">
             ${imageHTML}
-            <p><strong>Größe:</strong> ${pokemon.height / 10} m</p>
-            <p><strong>Gewicht:</strong> ${pokemon.weight} kg</p>
-            <p><strong>Fähigkeiten:</strong> ${pokemon.abilities.map(a => a.ability.name).join(', ')}</p>
+            <p><strong>height:</strong> ${pokemon.height / 10} m</p>
+            <p><strong>weight:</strong> ${pokemon.weight} kg</p>
+            <p><strong>abilities:</strong> ${pokemon.abilities.map(a => a.ability.name).join(', ')}</p>
         </div>
 
         <div id="tab-stats" class="tab-content">
