@@ -54,3 +54,25 @@
 .nav-arrow.right {
     right: 20px;
 }
+
+
+
+
+.type-border-fire { border: 3px solid #F08030; }   /* Feuer = Orange-Rot */
+.type-border-water { border: 3px solid #6890F0; }  /* Wasser = Blau */
+.type-border-grass { border: 3px solid #78C850; }
+.type-border-electric { border: 3px solid #F8D030; }
+.type-border-ice { border: 3px solid #98D8D8; }
+.type-border-fighting { border: 3px solid #C03028; }
+.type-border-poison { border: 3px solid #A040A0; }
+.type-border-ground { border: 3px solid #E0C068; }
+.type-border-flying { border: 3px solid #A890F0; }
+.type-border-psychic { border: 3px solid #F85888; }
+.type-border-bug { border: 3px solid #A8B820; }
+.type-border-rock { border: 3px solid #B8A038; }
+.type-border-ghost { border: 3px solid #705898; }
+.type-border-dark { border: 3px solid #705848; }
+.type-border-dragon { border: 3px solid #7038F8; }
+.type-border-steel { border: 3px solid #B8B8D0; }
+.type-border-fairy { border: 3px solid #EE99AC; }
+.type-border-normal { border: 3px solid #A8A878; }

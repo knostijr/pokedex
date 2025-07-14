@@ -1,8 +1,35 @@
 // ------ Template function -------
 // This file contains template functions for rendering Pokémon cards and details.
+function getTypeShadowColor(type) {
+    const colors = {
+        fire: '#F08030',
+        water: '#6890F0',
+        grass: '#78C850',
+        electric: '#F8D030',
+        ice: '#98D8D8',
+        fighting: '#C03028',
+        poison: '#A040A0',
+        ground: '#E0C068',
+        flying: '#A890F0',
+        psychic: '#F85888',
+        bug: '#A8B820',
+        rock: '#B8A038',
+        ghost: '#705898',
+        dark: '#705848',
+        dragon: '#7038F8',
+        steel: '#B8B8D0',
+        fairy: '#EE99AC',
+        normal: '#A8A878'
+    };
+    return colors[type] || '#000';
+}
 
 
 function buildPokemonCard(pokeData) {
+    let firstType = pokeData.types[0].type.name;
+    let shadowColor = getTypeShadowColor(firstType);
+    let typeClass = `type-${firstType}`;
+
     let typesHTML = '';
     for (let i = 0; i < pokeData.types.length; i++) {
         let typeName = pokeData.types[i].type.name;
@@ -13,11 +40,13 @@ function buildPokemonCard(pokeData) {
                      title="${typeName}" 
                      style="width: 30px; height: 30px">
             </li>`;
-    } return `
-        <div class="pokemon" onclick="showPokemonDetail(${pokeData.id})">
+    }
+
+    return `
+        <div class="pokemon ${typeClass}" onclick="showPokemonDetail(${pokeData.id})">
             <h4>${capitalize(pokeData.name)}</h4>
             <p>#${pokeData.id}</p>
-            <ul style="display: flex; gap: 5px; list-style: none; padding: 0;">${typesHTML}</ul>
+            <ul class="type-icons">${typesHTML}</ul>
             <div class="image">
                 <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokeData.id}.png" 
                      alt="${pokeData.name}">
@@ -25,7 +54,6 @@ function buildPokemonCard(pokeData) {
         </div>
     `;
 }
-
 // ------- Detail View Template -------
 function buildPokemonTypesHTML(pokemon) {
     let typesHTML = '';

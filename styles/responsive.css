@@ -1,0 +1,154 @@
+@media (max-width: 599px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px;
+    }
+
+    .navbar-container {
+        flex-direction: row;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .navbar-search {
+        width: 100%;
+        display: flex;
+        gap: 8px;
+        margin-top: 10px;
+    }
+
+    .navbar-search input {
+        flex: 1;
+        font-size: 14px;
+        padding: 6px;
+    }
+
+    .navbar-search button {
+        display: none;
+    }
+
+    .pokemon {
+        width: 90%;
+        padding: 8px;
+        font-size: 14px;
+        display: flex;
+        justify-content: center;
+    }
+
+    .pokemon h4 {
+        font-size: 16px;
+    }
+
+    .pokemon .image img {
+        width: 100px;
+    }
+
+    .pagination-controls {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .overlay {
+        padding: 10px;
+    }
+
+    .detail-container {
+        width: 100%;
+        padding: 12px;
+    }
+
+    .tab-btn {
+        flex: 1;
+        font-size: 14px;
+        padding: 6px 0;
+    }
+
+    .tab-content img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .stat-bar {
+        height: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px 16px;
+        height: auto;
+        gap: 12px;
+    }
+
+    .navbar-search {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .navbar-search input {
+        width: 100%;
+    }
+    .navbar-search button {
+        display: none;
+    }
+
+    #content {
+        padding-left: 16px;
+        padding-top: 24px;
+    }
+
+    .pokemon {
+        width: 90%;
+        margin: 8px auto;
+    }
+
+    .detail-container {
+        max-width: 95%;
+        max-height: 90vh;
+        padding: 16px;
+    }
+
+    .pokemon-detail-image {
+        width: 150px;
+    }
+
+    .tabs {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .tab-btn {
+        width: 100%;
+    }
+
+    .nav-arrow {
+        font-size: 28px;
+        padding: 6px 10px;
+    }
+
+    .type-list,
+    .type-icons {
+        flex-wrap: wrap;
+        justify-content: left;
+        gap: 6px;
+    }
+
+    .stats-container {
+        padding: 10px;
+    }
+
+    .footer-container img {
+        width: 150px;
+    }
+
+    .pagination-controls {
+        flex-direction: column;
+        gap: 12px;
+    }
+}

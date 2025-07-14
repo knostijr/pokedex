@@ -9,6 +9,7 @@ body {
     min-height: 100vh;
     max-width: 100%;
     background-color: rgb(6, 20, 26);
+
 }
 
 h4 {
@@ -17,7 +18,9 @@ h4 {
 
 
 #content {
-    padding-top: 20px;
+    padding-left: 60px;
+    padding-top: 60px;
+
 }
 
 .ul {
@@ -34,6 +37,7 @@ h4 {
     background-color: rgba(125, 164, 177, 0.315);
     color: whitesmoke;
     border: 1px solid #ddd;
+    transition: box-shadow 0.3s ease;
     border-radius: 12px;
     padding: 12px;
     margin: 10px;
@@ -119,11 +123,12 @@ h4 {
     margin-bottom: 16px;
 }
 
-.type-icon {
-    width: 30px;
-    height: 30px;
-    padding-top: 12px;
-
+.type-icons {
+    display: flex;
+    gap: 5px;
+    list-style: none;
+    padding: 0;
+    margin: 5px 0;
 }
 
 .pokemon-detail-image {
@@ -172,8 +177,6 @@ h4 {
     text-align: right;
 }
 
-
-
 /*------------------------------Tabs in detail view -----------------------------*/
 .tabs {
     display: flex;
@@ -209,4 +212,131 @@ h4 {
 @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
+}
+
+
+.type-normal {
+    box-shadow: 0 0 12px 4px #A8A878;
+}
+.type-normal:hover {
+    box-shadow: 0 0 20px 8px #A8A878;
+}
+
+.type-fire {
+    box-shadow: 0 0 12px 4px #F08030;
+}
+.type-fire:hover {
+    box-shadow: 0 0 20px 8px #F08030;
+}
+
+.type-water {
+    box-shadow: 0 0 12px 4px #6890F0;
+}
+.type-water:hover {
+    box-shadow: 0 0 20px 8px #6890F0;
+}
+
+.type-electric {
+    box-shadow: 0 0 12px 4px #F8D030;
+}
+.type-electric:hover {
+    box-shadow: 0 0 20px 8px #F8D030;
+}
+
+.type-grass {
+    box-shadow: 0 0 12px 4px #78C850;
+}
+.type-grass:hover {
+    box-shadow: 0 0 20px 8px #78C850;
+}
+
+.type-ice {
+    box-shadow: 0 0 12px 4px #98D8D8;
+}
+.type-ice:hover {
+    box-shadow: 0 0 20px 8px #98D8D8;
+}
+
+.type-fighting {
+    box-shadow: 0 0 12px 4px #C03028;
+}
+.type-fighting:hover {
+    box-shadow: 0 0 20px 8px #C03028;
+}
+
+.type-poison {
+    box-shadow: 0 0 12px 4px #A040A0;
+}
+.type-poison:hover {
+    box-shadow: 0 0 20px 8px #A040A0;
+}
+
+.type-ground {
+    box-shadow: 0 0 12px 4px #E0C068;
+}
+.type-ground:hover {
+    box-shadow: 0 0 20px 8px #E0C068;
+}
+
+.type-flying {
+    box-shadow: 0 0 12px 4px #A890F0;
+}
+.type-flying:hover {
+    box-shadow: 0 0 20px 8px #A890F0;
+}
+
+.type-psychic {
+    box-shadow: 0 0 12px 4px #F85888;
+}
+.type-psychic:hover {
+    box-shadow: 0 0 20px 8px #F85888;
+}
+
+.type-bug {
+    box-shadow: 0 0 12px 4px #A8B820;
+}
+.type-bug:hover {
+    box-shadow: 0 0 20px 8px #A8B820;
+}
+
+.type-rock {
+    box-shadow: 0 0 12px 4px #B8A038;
+}
+.type-rock:hover {
+    box-shadow: 0 0 20px 8px #B8A038;
+}
+
+.type-ghost {
+    box-shadow: 0 0 12px 4px #705898;
+}
+.type-ghost:hover {
+    box-shadow: 0 0 20px 8px #705898;
+}
+
+.type-dragon {
+    box-shadow: 0 0 12px 4px #7038F8;
+}
+.type-dragon:hover {
+    box-shadow: 0 0 20px 8px #7038F8;
+}
+
+.type-dark {
+    box-shadow: 0 0 12px 4px #705848;
+}
+.type-dark:hover {
+    box-shadow: 0 0 20px 8px #705848;
+}
+
+.type-steel {
+    box-shadow: 0 0 12px 4px #B8B8D0;
+}
+.type-steel:hover {
+    box-shadow: 0 0 20px 8px #B8B8D0;
+}
+
+.type-fairy {
+    box-shadow: 0 0 12px 4px #EE99AC;
+}
+.type-fairy:hover {
+    box-shadow: 0 0 20px 8px #EE99AC;
 }

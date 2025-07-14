@@ -1,5 +1,3 @@
-// is missing:
-// - types IMG, types Color on Card
 
 
 //-------- loading in body ----------------------------------------
@@ -133,17 +131,18 @@ document.addEventListener('keydown', (e) => {
 
 //------- render only 20 pokemons per page --------------------
 function renderPokemonPage() {
-    const content = document.getElementById('content');
+    let content = document.getElementById('content');
     content.innerHTML = '';
 
-    const startIndex = (currentPage - 1) * pokemonsPerPage;
-    const endIndex = startIndex + pokemonsPerPage;
-    const pagePokemons = allFetchedPokemon.slice(startIndex, endIndex);
+    allFetchedPokemon.sort((a, b) => a.id - b.id);
+
+    let startIndex = (currentPage - 1) * pokemonsPerPage;
+    let endIndex = startIndex + pokemonsPerPage;
+    let pagePokemons = allFetchedPokemon.slice(startIndex, endIndex);
 
     for (let i = 0; i < pagePokemons.length; i++) {
         renderPokemon(pagePokemons[i]);
     }
-
     renderPaginationControls();
 }
 
