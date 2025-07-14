@@ -2,7 +2,7 @@
     margin: 0;
     scroll-behavior: smooth;
     font-family: "Montserrat", sans-serif;
-    max-width: 1920px;
+    /*max-width: 1920px;*/
 }
 
 body {
@@ -362,4 +362,18 @@ h4 {
 
 .type-fairy:hover {
     box-shadow: 0 0 20px 8px #EE99AC;
+}
+
+html, body {
+    height: 100%;
+}
+
+.page-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+#content {
+    flex: 1; /* Damit Content den verfügbaren Platz einnimmt */
 }

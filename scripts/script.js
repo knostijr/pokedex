@@ -1,5 +1,4 @@
 
-
 //-------- loading in body ----------------------------------------
 async function init() {
     showLoadingSpinner();
@@ -14,6 +13,82 @@ function renderPokemon(pokeData) {
     let allPokemonContainer = document.getElementById('content');
     let pokemonHTML = buildPokemonCard(pokeData);
     allPokemonContainer.innerHTML += pokemonHTML;
+}
+
+
+function buildPokemonCard(pokeData) {
+    let id = pokeData.id;
+    let name = capitalize(pokeData.name);
+    let image = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`;
+    let typeClass = `type-${pokeData.types[0].type.name}`;
+
+    let types = [];
+    for (let i = 0; i < pokeData.types.length; i++) {
+        types.push(pokeData.types[i].type.name);
+    }
+
+    return getPokemonCardTemplate(id, name, image, typeClass, types);
+}
+
+
+function buildPokemonTypesHTML(pokemon) {
+    let types = pokemon.types.map(t => t.type.name);
+    return getPokemonTypesTemplate(types);
+}
+
+
+function buildPokemonStatsHTML(pokemon) {
+    let stats = pokemon.stats.map(stat => {
+        let name = capitalize(stat.stat.name);
+        let value = stat.base_stat;
+        let width = Math.min(value, 100);
+        let barClass = value >= 80 ? 'bar-green' : value >= 50 ? 'bar-yellow' : 'bar-red';
+        return { name, value, width, barClass };
+    });
+
+    return getPokemonStatsTemplate(stats);
+}
+
+
+function buildPokemonDetailHTML(pokemon) {
+    let id = pokemon.id;
+    let name = capitalize(pokemon.name);
+    let shadowColor = getTypeShadowColor(pokemon.types[0].type.name);
+    let image = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`;
+    let height = pokemon.height / 10;
+    let weight = pokemon.weight;
+    let abilities = pokemon.abilities.map(a => a.ability.name).join(', ');
+    
+    let typesHTML = buildPokemonTypesHTML(pokemon);
+    let statsHTML = buildPokemonStatsHTML(pokemon);
+
+    return getPokemonDetailTemplate(id, name, image, shadowColor, typesHTML, statsHTML, height, weight, abilities);
+}
+
+
+function getTypeShadowColor(typeName) {
+    const typeColors = {
+        normal:    "#A8A878",
+        fire:      "#F08030",
+        water:     "#6890F0",
+        electric:  "#F8D030",
+        grass:     "#78C850",
+        ice:       "#98D8D8",
+        fighting:  "#C03028",
+        poison:    "#A040A0",
+        ground:    "#E0C068",
+        flying:    "#A890F0",
+        psychic:   "#F85888",
+        bug:       "#A8B820",
+        rock:      "#B8A038",
+        ghost:     "#705898",
+        dragon:    "#7038F8",
+        dark:      "#705848",
+        steel:     "#B8B8D0",
+        fairy:     "#EE99AC"
+    };
+
+    return typeColors[typeName] || "#AAA"; 
 }
 
 
@@ -35,6 +110,16 @@ function createPokemonImage(pokeId, containerDiv) {
     containerDiv.append(pokeImgContainer);
 }
 
+// ------- render all 151 fetched Pokémon, just a test ----------------------------------------
+function renderAllFetchedPokemon() {
+    let content = document.getElementById('content');
+    content.innerHTML = '';
+
+    for (let i = 0; i < allFetchedPokemon.length; i++) {
+        renderPokemon(allFetchedPokemon[i]);
+    }
+}
+
 
 // -------- search functionality, real-time results -------------------------------------------
 function setupSearch() {
@@ -42,11 +127,17 @@ function setupSearch() {
     searchInput.addEventListener('input', handleSearchInput);
 }
 
-// ------- handle search input ----------------------------------------
+// ------- handle search input, if under 3 chars render 20 pokemons per page ----------------------------------------
 function handleSearchInput(event) {
     let query = event.target.value.trim().toLowerCase();
     let content = document.getElementById('content');
     content.innerHTML = '';
+
+    if (query.length < 3) {
+        currentPage = 1;
+        renderPokemonPage();
+        return;
+    }
 
     let results = [];
 
@@ -62,6 +153,7 @@ function handleSearchInput(event) {
 
     renderSearchResults(results, query, content);
 }
+
 
 // ------- render search results ----------------------------------------
 function renderSearchResults(results, query, container) {
@@ -93,6 +185,20 @@ function showPokemonDetail(pokemonId) {
     document.getElementById('pokemon-detail-overlay').classList.remove('hidden');
     document.body.classList.add('no-scroll');
 
+    let prevBtn = document.getElementById('prev-btn');
+    let nextBtn = document.getElementById('next-btn');
+
+    if (currentPokemonIndex <= 0) {
+        prevBtn.classList.add('hidden');
+    } else {
+        prevBtn.classList.remove('hidden');
+    }
+
+    if (currentPokemonIndex >= allFetchedPokemon.length - 1) {
+        nextBtn.classList.add('hidden');
+    } else {
+        nextBtn.classList.remove('hidden');
+    }
 }
 
 // ------- close detail view ----------------------------------------
@@ -104,19 +210,18 @@ function closePokemonDetail() {
 // ------- show previous pokemon ----------------------------------------
 function showPrevPokemon() {
     if (currentPokemonIndex > 0) {
-        currentPokemonIndex--;
-        showPokemonDetail(allFetchedPokemon[currentPokemonIndex].id);
+        let prevPokemon = allFetchedPokemon[currentPokemonIndex - 1];
+        showPokemonDetail(prevPokemon.id);
     }
 }
 
 //  ------- show next pokemon ----------------------------------------
 function showNextPokemon() {
     if (currentPokemonIndex < allFetchedPokemon.length - 1) {
-        currentPokemonIndex++;
-        showPokemonDetail(allFetchedPokemon[currentPokemonIndex].id);
+        let nextPokemon = allFetchedPokemon[currentPokemonIndex + 1];
+        showPokemonDetail(nextPokemon.id);
     }
 }
-
 //------- keyboard navigation ----------------------------------------
 document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
