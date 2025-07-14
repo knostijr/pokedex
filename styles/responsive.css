@@ -1,7 +1,11 @@
 @media (max-width: 599px) {
+    #content {
+        padding-left: 0;
+    }
+
     .navbar {
         flex-direction: column;
-        align-items: flex-start;
+        align-items: center;
         padding: 10px;
     }
 
@@ -20,7 +24,7 @@
 
     .navbar-search input {
         flex: 1;
-        font-size: 14px;
+        font-size: 16px;
         padding: 6px;
     }
 
@@ -31,9 +35,10 @@
     .pokemon {
         width: 90%;
         padding: 8px;
-        font-size: 14px;
+        font-size: 16px;
         display: flex;
         justify-content: center;
+  
     }
 
     .pokemon h4 {
@@ -78,7 +83,7 @@
 
     .navbar {
         flex-direction: column;
-        align-items: flex-start;
+        align-items: center;
         padding: 10px 16px;
         height: auto;
         gap: 12px;
@@ -134,7 +139,6 @@
 
     .type-list,
     .type-icons {
-        flex-wrap: wrap;
         justify-content: left;
         gap: 6px;
     }

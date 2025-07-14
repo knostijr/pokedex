@@ -30,7 +30,7 @@ async function fetchPokemonData(pokemon) {
         let response = await fetch(pokemon.url);
         let pokeData = await response.json();
         allFetchedPokemon.push(pokeData);
-        renderPokemon(pokeData);
+
         //console.log(pokeData);
     } catch (error) {
         console.error('Fehler beim Laden der Pokémon-Daten:', error);

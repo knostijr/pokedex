@@ -97,8 +97,10 @@ function buildPokemonStatsHTML(pokemon) {
 
 // ------- Pokémon Detail View Template -------
 function buildPokemonDetailHTML(pokemon) {
-     typesHTML = buildPokemonTypesHTML(pokemon);
-     statsHTML = buildPokemonStatsHTML(pokemon);
+     let firstType = pokemon.types[0].type.name;
+     let shadowColor = getTypeShadowColor(firstType);
+     let typesHTML = buildPokemonTypesHTML(pokemon);
+     let statsHTML = buildPokemonStatsHTML(pokemon);
      imageHTML = `
         <div class="pokemon-detail-image-wrapper">
             <img class="pokemon-detail-image"
@@ -106,6 +108,7 @@ function buildPokemonDetailHTML(pokemon) {
                  alt="${pokemon.name}">
         </div>`;
     return `
+      <div class="pokemon-detail-container" style="box-shadow: 0 0 20px ${shadowColor}; padding: 20px; border-radius: 10px;">
         <div class="detail-close">
             <button onclick="closePokemonDetail()">✖ close</button>
         </div>
@@ -133,7 +136,9 @@ function buildPokemonDetailHTML(pokemon) {
 
         <div id="tab-evolution" class="tab-content">
             ${imageHTML}
-            <p>Wird später mit Evolutionsdaten gefüllt…</p>
+            <p>is coming soon…</p>
         </div>
+      </div>
     `;
+
 }

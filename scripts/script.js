@@ -36,7 +36,7 @@ function createPokemonImage(pokeId, containerDiv) {
 }
 
 
-// -------- search functionality -------------------------------------------
+// -------- search functionality, real-time results -------------------------------------------
 function setupSearch() {
     let searchInput = document.getElementById('search');
     searchInput.addEventListener('input', handleSearchInput);
@@ -66,9 +66,9 @@ function handleSearchInput(event) {
 // ------- render search results ----------------------------------------
 function renderSearchResults(results, query, container) {
     if (results.length === 0 && query !== '') {
-        container.innerHTML = ` <div class="no-results"
-                                <p>Kein Pokémon gefunden.</p>
-                                </dicv>`;
+        container.innerHTML = ` <div class="no-results">
+                                <p>No Pokémon found.</p>
+                                </div>`;
     } else {
         let list = query === '' ? allFetchedPokemon : results;
         for (let i = 0; i < list.length; i++) {
@@ -76,7 +76,6 @@ function renderSearchResults(results, query, container) {
         }
     }
 }
-
 
 // ------- detail view -------------------------------------------------------
 let currentPokemonIndex = 0
@@ -154,13 +153,13 @@ function renderPaginationControls() {
     let totalPages = Math.ceil(allFetchedPokemon.length / pokemonsPerPage);
 
     if (currentPage > 1) {
-        paginationContainer.innerHTML += `<button onclick="goToPage(${currentPage - 1})">⬅️ Zurück</button>`;
+        paginationContainer.innerHTML += `<button onclick="goToPage(${currentPage - 1})">previous</button>`;
     }
 
-    paginationContainer.innerHTML += `<span style="color:white; margin: 0 12px;">Seite ${currentPage} von ${totalPages}</span>`;
+    paginationContainer.innerHTML += `<span style="color:white; margin: 0 12px;">page ${currentPage} of ${totalPages}</span>`;
 
     if (currentPage < totalPages) {
-        paginationContainer.innerHTML += `<button onclick="goToPage(${currentPage + 1})">Weiter ➡️</button>`;
+        paginationContainer.innerHTML += `<button onclick="goToPage(${currentPage + 1})">next</button>`;
     }
 }
 
@@ -190,4 +189,5 @@ function showTab(tabId) {
         }
     }
 }
+
 

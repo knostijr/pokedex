@@ -24,17 +24,16 @@ h4 {
 }
 
 .ul {
-    display: flex; 
-    gap: 5px; 
-    list-style: none; 
-    padding: 0; 
-    justify-content: center; 
+    display: flex;
+    gap: 5px;
+    list-style: none;
+    padding: 0;
+    justify-content: center;
     margin-top: 10px;
 }
 
 .pokemon {
     cursor: pointer;
-    background-color: rgba(125, 164, 177, 0.315);
     color: whitesmoke;
     border: 1px solid #ddd;
     transition: box-shadow 0.3s ease;
@@ -44,15 +43,12 @@ h4 {
     text-align: center;
     width: 180px;
     display: inline-block;
-    box-shadow: 2px 2px 6px rgba(0,0,0,0.1);
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.1);
+ 
 }
 
-.pokemon:hover {
-    background-color: rgba(182, 237, 255, 0.315);
-}
-
-.pokemon p{
-    color:rgb(255, 213, 0);
+.pokemon p {
+    color: rgb(255, 213, 0);
     font-weight: 800;
 }
 
@@ -63,18 +59,23 @@ h4 {
 }
 
 .spinner {
-  border: 8px solid #f3f3f3;
-  border-top: 8px solid #e3350d;
-  border-radius: 50%;
-  width: 60px;
-  height: 60px;
-  animation: spin 1s linear infinite;
-  margin: 40px auto;
+    border: 8px solid #f3f3f3;
+    border-top: 8px solid #e3350d;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 1s linear infinite;
+    margin: 40px auto;
 }
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 .no-results {
@@ -91,7 +92,6 @@ h4 {
 
 .pagination-controls {
     display: flex;
-
     justify-content: center;
     align-items: center;
     gap: 16px;
@@ -210,14 +210,20 @@ h4 {
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }
 
-
+/*----------------------------color of types--------------------------------------*/
 .type-normal {
     box-shadow: 0 0 12px 4px #A8A878;
 }
+
 .type-normal:hover {
     box-shadow: 0 0 20px 8px #A8A878;
 }
@@ -225,6 +231,7 @@ h4 {
 .type-fire {
     box-shadow: 0 0 12px 4px #F08030;
 }
+
 .type-fire:hover {
     box-shadow: 0 0 20px 8px #F08030;
 }
@@ -232,6 +239,7 @@ h4 {
 .type-water {
     box-shadow: 0 0 12px 4px #6890F0;
 }
+
 .type-water:hover {
     box-shadow: 0 0 20px 8px #6890F0;
 }
@@ -239,6 +247,7 @@ h4 {
 .type-electric {
     box-shadow: 0 0 12px 4px #F8D030;
 }
+
 .type-electric:hover {
     box-shadow: 0 0 20px 8px #F8D030;
 }
@@ -246,6 +255,7 @@ h4 {
 .type-grass {
     box-shadow: 0 0 12px 4px #78C850;
 }
+
 .type-grass:hover {
     box-shadow: 0 0 20px 8px #78C850;
 }
@@ -253,6 +263,7 @@ h4 {
 .type-ice {
     box-shadow: 0 0 12px 4px #98D8D8;
 }
+
 .type-ice:hover {
     box-shadow: 0 0 20px 8px #98D8D8;
 }
@@ -260,6 +271,7 @@ h4 {
 .type-fighting {
     box-shadow: 0 0 12px 4px #C03028;
 }
+
 .type-fighting:hover {
     box-shadow: 0 0 20px 8px #C03028;
 }
@@ -267,6 +279,7 @@ h4 {
 .type-poison {
     box-shadow: 0 0 12px 4px #A040A0;
 }
+
 .type-poison:hover {
     box-shadow: 0 0 20px 8px #A040A0;
 }
@@ -274,6 +287,7 @@ h4 {
 .type-ground {
     box-shadow: 0 0 12px 4px #E0C068;
 }
+
 .type-ground:hover {
     box-shadow: 0 0 20px 8px #E0C068;
 }
@@ -281,6 +295,7 @@ h4 {
 .type-flying {
     box-shadow: 0 0 12px 4px #A890F0;
 }
+
 .type-flying:hover {
     box-shadow: 0 0 20px 8px #A890F0;
 }
@@ -288,6 +303,7 @@ h4 {
 .type-psychic {
     box-shadow: 0 0 12px 4px #F85888;
 }
+
 .type-psychic:hover {
     box-shadow: 0 0 20px 8px #F85888;
 }
@@ -295,6 +311,7 @@ h4 {
 .type-bug {
     box-shadow: 0 0 12px 4px #A8B820;
 }
+
 .type-bug:hover {
     box-shadow: 0 0 20px 8px #A8B820;
 }
@@ -302,6 +319,7 @@ h4 {
 .type-rock {
     box-shadow: 0 0 12px 4px #B8A038;
 }
+
 .type-rock:hover {
     box-shadow: 0 0 20px 8px #B8A038;
 }
@@ -309,6 +327,7 @@ h4 {
 .type-ghost {
     box-shadow: 0 0 12px 4px #705898;
 }
+
 .type-ghost:hover {
     box-shadow: 0 0 20px 8px #705898;
 }
@@ -316,6 +335,7 @@ h4 {
 .type-dragon {
     box-shadow: 0 0 12px 4px #7038F8;
 }
+
 .type-dragon:hover {
     box-shadow: 0 0 20px 8px #7038F8;
 }
@@ -323,6 +343,7 @@ h4 {
 .type-dark {
     box-shadow: 0 0 12px 4px #705848;
 }
+
 .type-dark:hover {
     box-shadow: 0 0 20px 8px #705848;
 }
@@ -330,6 +351,7 @@ h4 {
 .type-steel {
     box-shadow: 0 0 12px 4px #B8B8D0;
 }
+
 .type-steel:hover {
     box-shadow: 0 0 20px 8px #B8B8D0;
 }
@@ -337,6 +359,7 @@ h4 {
 .type-fairy {
     box-shadow: 0 0 12px 4px #EE99AC;
 }
+
 .type-fairy:hover {
     box-shadow: 0 0 20px 8px #EE99AC;
 }
