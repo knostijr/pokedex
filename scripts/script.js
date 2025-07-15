@@ -110,15 +110,6 @@ function createPokemonImage(pokeId, containerDiv) {
     containerDiv.append(pokeImgContainer);
 }
 
-// ------- render all 151 fetched Pokémon, just a test ----------------------------------------
-function renderAllFetchedPokemon() {
-    let content = document.getElementById('content');
-    content.innerHTML = '';
-
-    for (let i = 0; i < allFetchedPokemon.length; i++) {
-        renderPokemon(allFetchedPokemon[i]);
-    }
-}
 
 
 // -------- search functionality, real-time results -------------------------------------------
